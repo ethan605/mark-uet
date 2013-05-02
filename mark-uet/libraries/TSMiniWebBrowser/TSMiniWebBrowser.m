@@ -55,7 +55,7 @@ enum actionSheetButtonIndex {
         navigationBarModal.topItem.title = pageTitle;
         
     } else if(mode == TSMiniWebBrowserModeNavigation) {
-        if(pageTitle) [[self navigationItem] setTitle:pageTitle];
+//        if(pageTitle) [[self navigationItem] setTitle:pageTitle];
     }
 }
 

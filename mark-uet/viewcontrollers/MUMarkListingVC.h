@@ -14,4 +14,6 @@
     NSArray *_marksData;
 }
 
+- (void)filterMarksByCategory:(NSString*)category;
+
 @end

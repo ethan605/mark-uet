@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class IIViewDeckController;
+
 @interface MUSplashScreenVC : UIViewController {
     IBOutlet UIActivityIndicatorView *_vLoadingIndicator;
+    
+    IIViewDeckController *_viewDeck;
 }
 
 @end

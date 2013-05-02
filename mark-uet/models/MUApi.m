@@ -29,7 +29,7 @@
      success:^(AFHTTPRequestOperation *operation, id responseObject) {
          NSDictionary *responseDict = [responseObject objectFromJSONData];
          
-         if (!responseDict) {
+         if (!responseDict && errorHandler) {
              NSError *error = [NSError errorWithDomain:@"Non-JSON data" code:1 userInfo:nil];
              errorHandler(error);
              return;
@@ -45,7 +45,8 @@
          
          successHandler();
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         errorHandler(error);
+         if (errorHandler)
+             errorHandler(error);
      }];
 }
 

@@ -11,10 +11,13 @@
 #import "MMark.h"
 #import "MUMarkCell.h"
 #import "TSMiniWebBrowser.h"
+#import "SVPullToRefresh.h"
 
 @interface MUMarkListingVC () {
     MUMarkCell *_tmpMarkCell;
 }
+
+- (void)refreshMarksList;
 
 @end
 
@@ -27,6 +30,33 @@
     
     _marksData = [[MUApi sharedApi] marksData];
     _tmpMarkCell = [[MUMarkCell alloc] init];
+    
+    MUMarkListingVC *selfDelegate = self;
+    
+    [_tblMarkListing addPullToRefreshWithActionHandler:^{
+        [selfDelegate refreshMarksList];
+    }];
+}
+
+- (void)filterMarksByCategory:(NSString *)category {
+    if ([category isEqualToString:@""])
+        _marksData = [[MUApi sharedApi] marksData];
+    else {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.category == %@", category];
+        _marksData = [[[MUApi sharedApi] marksData] filteredArrayUsingPredicate:predicate];
+    }
+    
+    [_tblMarkListing reloadData];
+    [_tblMarkListing scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                           atScrollPosition:UITableViewScrollPositionTop
+                                   animated:YES];
+}
+
+- (void)refreshMarksList {
+    [[MUApi sharedApi] getAllMarks:^() {
+        [_tblMarkListing.pullToRefreshView stopAnimating];
+        [_tblMarkListing reloadData];
+    } error:NULL];
 }
 
 #pragma UITableViewDataSource methods

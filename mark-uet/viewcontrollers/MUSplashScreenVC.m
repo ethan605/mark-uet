@@ -9,6 +9,7 @@
 #import "MUSplashScreenVC.h"
 #import "MUApi.h"
 #import "IIViewDeckController.h"
+#import "MURearVC.h"
 #import "MUMarkListingVC.h"
 
 @interface MUSplashScreenVC ()
@@ -34,9 +35,13 @@
 }
 
 - (void)gotoMarkListing {
+    MURearVC *rearVC = [[MURearVC alloc] init];
     MUMarkListingVC *markListingVC = [[MUMarkListingVC alloc] init];
     UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:markListingVC];
-    [self presentViewController:navigation animated:YES completion:NULL];
+    
+    _viewDeck = [[IIViewDeckController alloc] initWithCenterViewController:navigation leftViewController:rearVC];
+    [_viewDeck setLeftSize:100];
+    [self presentViewController:_viewDeck animated:YES completion:NULL];
 }
 
 @end
