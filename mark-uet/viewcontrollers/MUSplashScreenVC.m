@@ -15,6 +15,7 @@
 @interface MUSplashScreenVC ()
 
 - (void)gotoMarkListing;
+- (void)getAllMarks;
 
 @end
 
@@ -23,15 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_vLoadingIndicator startAnimating];
-    
-    [[MUApi sharedApi] getAllMarks:^() {
-        [_vLoadingIndicator stopAnimating];
-        [self gotoMarkListing];
-    } error:^(NSError *error) {
-        [_vLoadingIndicator stopAnimating];
-        [[MUApi sharedApi] showErrorAlert:error];
-    }];
+    [self getAllMarks];
 }
 
 - (void)gotoMarkListing {
@@ -42,6 +35,33 @@
     _viewDeck = [[IIViewDeckController alloc] initWithCenterViewController:navigation leftViewController:rearVC];
     [_viewDeck setLeftSize:100];
     [self presentViewController:_viewDeck animated:YES completion:NULL];
+}
+
+- (void)getAllMarks {
+    [_vLoadingIndicator startAnimating];
+    
+    [[MUApi sharedApi] getAllMarks:^() {
+        [_vLoadingIndicator stopAnimating];
+        [self gotoMarkListing];
+    } error:^(NSError *error) {
+        [_vLoadingIndicator stopAnimating];
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:[NSString stringWithFormat:@"Error code %d - %@", error.code, error.domain]
+                                  message:[NSString stringWithFormat:@"%@", error.userInfo]
+                                  delegate:self
+                                  cancelButtonTitle:@"OK"
+                                  otherButtonTitles:@"Retry", nil];
+        
+        [alertView show];
+    }];
+}
+
+#pragma UIAlertViewDelegate methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != 1)
+        return;
+    
+    [self getAllMarks];
 }
 
 @end

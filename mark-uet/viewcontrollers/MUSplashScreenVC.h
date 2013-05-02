@@ -10,7 +10,7 @@
 
 @class IIViewDeckController;
 
-@interface MUSplashScreenVC : UIViewController {
+@interface MUSplashScreenVC : UIViewController <UIAlertViewDelegate> {
     IBOutlet UIActivityIndicatorView *_vLoadingIndicator;
     
     IIViewDeckController *_viewDeck;

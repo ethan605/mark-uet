@@ -15,6 +15,7 @@
 
 @interface MUMarkListingVC () {
     MUMarkCell *_tmpMarkCell;
+    NSString *_filterCat;
 }
 
 - (void)refreshMarksList;
@@ -30,6 +31,7 @@
     
     _marksData = [[MUApi sharedApi] marksData];
     _tmpMarkCell = [[MUMarkCell alloc] init];
+    _filterCat = @"";
     
     MUMarkListingVC *selfDelegate = self;
     
@@ -39,7 +41,9 @@
 }
 
 - (void)filterMarksByCategory:(NSString *)category {
-    if ([category isEqualToString:@""])
+    _filterCat = category;
+    
+    if ([_filterCat isEqualToString:@""])
         _marksData = [[MUApi sharedApi] marksData];
     else {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.category == %@", category];
@@ -55,7 +59,7 @@
 - (void)refreshMarksList {
     [[MUApi sharedApi] getAllMarks:^() {
         [_tblMarkListing.pullToRefreshView stopAnimating];
-        [_tblMarkListing reloadData];
+        [self filterMarksByCategory:_filterCat];
     } error:NULL];
 }
 
