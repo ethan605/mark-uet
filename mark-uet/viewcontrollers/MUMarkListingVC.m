@@ -12,12 +12,15 @@
 #import "MUMarkCell.h"
 #import "TSMiniWebBrowser.h"
 #import "SVPullToRefresh.h"
+#import "IIViewDeckController.h"
 
 @interface MUMarkListingVC () {
     MUMarkCell *_tmpMarkCell;
     NSString *_filterCat;
 }
 
+- (void)setupFilterButton;
+- (void)toggleFilterMenu;
 - (void)refreshMarksList;
 
 @end
@@ -38,6 +41,20 @@
     [_tblMarkListing addPullToRefreshWithActionHandler:^{
         [selfDelegate refreshMarksList];
     }];
+    
+    [self setupFilterButton];
+}
+
+- (void)setupFilterButton {
+    UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithTitle:@"Filter"
+                                                                     style:UIBarButtonItemStyleDone
+                                                                    target:self
+                                                                    action:@selector(toggleFilterMenu)];
+    self.navigationItem.leftBarButtonItem = filterButton;
+}
+
+- (void)toggleFilterMenu {
+    [self.navigationController.viewDeckController toggleLeftViewAnimated:YES];
 }
 
 - (void)filterMarksByCategory:(NSString *)category {
