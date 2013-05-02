@@ -50,12 +50,12 @@
     MMark *mark = _marksData[indexPath.row];
     TSMiniWebBrowser *miniWebBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:mark.link]];
     miniWebBrowser.mode = TSMiniWebBrowserModeNavigation;
+    miniWebBrowser.title = mark.title;
     [self.navigationController pushViewController:miniWebBrowser animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     [_tmpMarkCell updateCellWithData:_marksData[indexPath.row]];
-    
     return _tmpMarkCell.heightToFit;
 }
 

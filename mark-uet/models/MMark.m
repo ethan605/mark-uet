@@ -20,6 +20,8 @@
             _title = titleArr[0];
             _uploaded_at = titleArr[1];
         }
+        
+        _link = [_link stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     }
     return self;
 }
