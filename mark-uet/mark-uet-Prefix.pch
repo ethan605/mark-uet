@@ -11,4 +11,18 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
 #endif
+
+#undef DEBUG
+
+#define DLog(format, ...) NSLog((@"Func: %s , Line: %d, " format), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+#define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
+#define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+
+#define LoadNibNameFromSameClass() \
+[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil][0]
+
+#define kApiUrl         @"http://mark-uet.herokuapp.com"
