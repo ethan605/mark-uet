@@ -41,7 +41,7 @@
     if (!cell)
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MenuCell"];
     
-    cell.textLabel.text = _menusData[indexPath.row];
+    cell.textLabel.text = _menusData[indexPath.row][@"title"];
     
     return cell;
 }
