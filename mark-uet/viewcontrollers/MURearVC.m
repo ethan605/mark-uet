@@ -10,9 +10,7 @@
 #import "IIViewDeckController.h"
 #import "MUMarkListingVC.h"
 
-@interface MURearVC () {
-    NSArray *_filterCats;
-}
+@interface MURearVC ()
 
 @end
 
@@ -21,8 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _menusData = @[@"Home", @"Filter by INT", @"Filter by MAT", @"Filter by PHY"];
-    _filterCats = @[@"", @"INT", @"MAT", @"PHY"];
+    _menusData = @[@{@"title" : @"Home", @"cat" : @""},
+                   @{@"title" : @"Filter by INT", @"cat" : @"INT"},
+                   @{@"title" : @"Filter by MAT", @"cat" : @"MAT"},
+                   @{@"title" : @"Filter by PHY", @"cat" : @"PHY"},];
 }
 
 - (void)viewDidUnload {
@@ -49,17 +49,10 @@
 #pragma UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.viewDeckController toggleLeftViewAnimated:YES];
-    switch (indexPath.row) {
-        case 0:
-            break;
-            
-        default: {
-            UINavigationController *navigation = (UINavigationController*)self.viewDeckController.centerController;
-            MUMarkListingVC *markListingVC = (MUMarkListingVC*)navigation.viewControllers[0];
-            [markListingVC filterMarksByCategory:_filterCats[indexPath.row]];
-        }
-            break;
-    }
+    UINavigationController *navigation = (UINavigationController*)self.viewDeckController.centerController;
+    MUMarkListingVC *markListingVC = (MUMarkListingVC*)navigation.viewControllers[0];
+    [markListingVC filterMarksByCategory:_menusData[indexPath.row][@"cat"]];
+    markListingVC.title = _menusData[indexPath.row][@"title"];
 }
 
 @end
