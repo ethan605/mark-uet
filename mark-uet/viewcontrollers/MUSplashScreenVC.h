@@ -8,12 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@class MUMarkListingVC;
-
 @interface MUSplashScreenVC : UIViewController {
     IBOutlet UIActivityIndicatorView *_vLoadingIndicator;
-    
-    MUMarkListingVC *_markListingVC;
 }
 
 @end

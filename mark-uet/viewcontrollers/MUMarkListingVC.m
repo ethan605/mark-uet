@@ -10,6 +10,7 @@
 #import "MUApi.h"
 #import "MMark.h"
 #import "MUMarkCell.h"
+#import "TSMiniWebBrowser.h"
 
 @interface MUMarkListingVC () {
     MUMarkCell *_tmpMarkCell;
@@ -22,8 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _marksData = [[MUApi sharedApi] marksData];
+    self.title = @"Home";
     
+    _marksData = [[MUApi sharedApi] marksData];
     _tmpMarkCell = [[MUMarkCell alloc] init];
 }
 
@@ -45,6 +47,10 @@
 
 #pragma UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MMark *mark = _marksData[indexPath.row];
+    TSMiniWebBrowser *miniWebBrowser = [[TSMiniWebBrowser alloc] initWithUrl:[NSURL URLWithString:mark.link]];
+    miniWebBrowser.mode = TSMiniWebBrowserModeNavigation;
+    [self.navigationController pushViewController:miniWebBrowser animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

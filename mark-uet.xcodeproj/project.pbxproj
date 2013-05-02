@@ -41,6 +41,14 @@
 		AA01674C1732B2C500F0C176 /* MUMarkListingVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA01674A1732B2C500F0C176 /* MUMarkListingVC.xib */; };
 		AA0167501732B61D00F0C176 /* MUMarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA01674F1732B61D00F0C176 /* MUMarkCell.m */; };
 		AA0167521732B62C00F0C176 /* MUMarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0167511732B62C00F0C176 /* MUMarkCell.xib */; };
+		AA0167BB1732BC6800F0C176 /* back_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B21732BC6800F0C176 /* back_icon.png */; };
+		AA0167BC1732BC6800F0C176 /* back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B31732BC6800F0C176 /* back_icon@2x.png */; };
+		AA0167BD1732BC6800F0C176 /* forward_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B41732BC6800F0C176 /* forward_icon.png */; };
+		AA0167BE1732BC6800F0C176 /* forward_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B51732BC6800F0C176 /* forward_icon@2x.png */; };
+		AA0167BF1732BC6800F0C176 /* reload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B61732BC6800F0C176 /* reload_icon.png */; };
+		AA0167C01732BC6800F0C176 /* reload_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0167B71732BC6800F0C176 /* reload_icon@2x.png */; };
+		AA0167C11732BC6800F0C176 /* TSMiniWebBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0167B91732BC6800F0C176 /* TSMiniWebBrowser.m */; };
+		AA0167C21732BC6800F0C176 /* TSMiniWebBrowser.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA0167BA1732BC6800F0C176 /* TSMiniWebBrowser.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +110,15 @@
 		AA01674E1732B61D00F0C176 /* MUMarkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MUMarkCell.h; path = tableviewcell/MUMarkCell.h; sourceTree = "<group>"; };
 		AA01674F1732B61D00F0C176 /* MUMarkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MUMarkCell.m; path = tableviewcell/MUMarkCell.m; sourceTree = "<group>"; };
 		AA0167511732B62C00F0C176 /* MUMarkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MUMarkCell.xib; path = tableviewcell/MUMarkCell.xib; sourceTree = "<group>"; };
+		AA0167B21732BC6800F0C176 /* back_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_icon.png; sourceTree = "<group>"; };
+		AA0167B31732BC6800F0C176 /* back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_icon@2x.png"; sourceTree = "<group>"; };
+		AA0167B41732BC6800F0C176 /* forward_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward_icon.png; sourceTree = "<group>"; };
+		AA0167B51732BC6800F0C176 /* forward_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "forward_icon@2x.png"; sourceTree = "<group>"; };
+		AA0167B61732BC6800F0C176 /* reload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_icon.png; sourceTree = "<group>"; };
+		AA0167B71732BC6800F0C176 /* reload_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload_icon@2x.png"; sourceTree = "<group>"; };
+		AA0167B81732BC6800F0C176 /* TSMiniWebBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSMiniWebBrowser.h; sourceTree = "<group>"; };
+		AA0167B91732BC6800F0C176 /* TSMiniWebBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSMiniWebBrowser.m; sourceTree = "<group>"; };
+		AA0167BA1732BC6800F0C176 /* TSMiniWebBrowser.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSMiniWebBrowser.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +200,7 @@
 			children = (
 				AA0165931732A2F100F0C176 /* AFNetworking */,
 				AA0167411732AD3C00F0C176 /* JSONKit */,
+				AA0167B01732BC6800F0C176 /* TSMiniWebBrowser */,
 				AA0167351732ABB400F0C176 /* ViewDeck */,
 			);
 			name = Libraries;
@@ -275,6 +293,30 @@
 			name = "Tableview Cells";
 			sourceTree = "<group>";
 		};
+		AA0167B01732BC6800F0C176 /* TSMiniWebBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				AA0167B11732BC6800F0C176 /* images */,
+				AA0167B81732BC6800F0C176 /* TSMiniWebBrowser.h */,
+				AA0167B91732BC6800F0C176 /* TSMiniWebBrowser.m */,
+				AA0167BA1732BC6800F0C176 /* TSMiniWebBrowser.xib */,
+			);
+			path = TSMiniWebBrowser;
+			sourceTree = "<group>";
+		};
+		AA0167B11732BC6800F0C176 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				AA0167B21732BC6800F0C176 /* back_icon.png */,
+				AA0167B31732BC6800F0C176 /* back_icon@2x.png */,
+				AA0167B41732BC6800F0C176 /* forward_icon.png */,
+				AA0167B51732BC6800F0C176 /* forward_icon@2x.png */,
+				AA0167B61732BC6800F0C176 /* reload_icon.png */,
+				AA0167B71732BC6800F0C176 /* reload_icon@2x.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +376,13 @@
 				AA01672D1732A7C300F0C176 /* MUSplashScreenVC.xib in Resources */,
 				AA01674C1732B2C500F0C176 /* MUMarkListingVC.xib in Resources */,
 				AA0167521732B62C00F0C176 /* MUMarkCell.xib in Resources */,
+				AA0167BB1732BC6800F0C176 /* back_icon.png in Resources */,
+				AA0167BC1732BC6800F0C176 /* back_icon@2x.png in Resources */,
+				AA0167BD1732BC6800F0C176 /* forward_icon.png in Resources */,
+				AA0167BE1732BC6800F0C176 /* forward_icon@2x.png in Resources */,
+				AA0167BF1732BC6800F0C176 /* reload_icon.png in Resources */,
+				AA0167C01732BC6800F0C176 /* reload_icon@2x.png in Resources */,
+				AA0167C21732BC6800F0C176 /* TSMiniWebBrowser.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +414,7 @@
 				AA0167471732ADCC00F0C176 /* MMark.m in Sources */,
 				AA01674B1732B2C500F0C176 /* MUMarkListingVC.m in Sources */,
 				AA0167501732B61D00F0C176 /* MUMarkCell.m in Sources */,
+				AA0167C11732BC6800F0C176 /* TSMiniWebBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +494,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mark-uet/mark-uet-Prefix.pch";
 				INFOPLIST_FILE = "mark-uet/mark-uet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,6 +506,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mark-uet/mark-uet-Prefix.pch";
 				INFOPLIST_FILE = "mark-uet/mark-uet-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

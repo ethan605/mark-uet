@@ -34,8 +34,9 @@
 }
 
 - (void)gotoMarkListing {
-    _markListingVC = [[MUMarkListingVC alloc] init];
-    [self presentViewController:_markListingVC animated:YES completion:NULL];
+    MUMarkListingVC *markListingVC = [[MUMarkListingVC alloc] init];
+    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:markListingVC];
+    [self presentViewController:navigation animated:YES completion:NULL];
 }
 
 @end
